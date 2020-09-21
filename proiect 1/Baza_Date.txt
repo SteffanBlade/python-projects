@@ -1,0 +1,6 @@
+Bloc11,Sc2,Ap7,Tataru,4,200lei,0lei
+Bloc11,Sc2,Ap5,Sisu,2,150lei,200lei
+Bloc11,Sc2,Ap10,Popescu,1,400lei,1000lei
+Bloc11,Sc2,Ap20,Anghel,3,780,200lei
+Bloc11,Sc2,Ap19,ION,5,200lei,145lei
+Bloc11,Sc2,Ap4,Voicu,4,600lei,0lei

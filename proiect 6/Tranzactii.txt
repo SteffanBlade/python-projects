@@ -1,0 +1,3 @@
+mihai,juridica,fidel,oferta,100,500
+carmen,fizica,fidel,cerere,15,600
+bianca,fizica,fidel,cerere,50,500

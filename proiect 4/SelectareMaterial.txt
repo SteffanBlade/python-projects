@@ -1,0 +1,157 @@
+# inventar complet
+# tabel cu cantitate > 4
+# tabel cu cantitate = 0
+# tabel cu pretUnitar > 10000
+
+
+#	Format date
+#	PretUnitar - int
+#	Nume - string
+#	Cantitate - int
+
+#	Baza de date este un fisier text cu informatii despre materiale,
+#	Nume, Cantitate, PretUnitar pe o linie pentru fiecare matoana.
+#	Campurile sunt separate de virgule
+
+class Material:
+
+    def __init__(self, nume, cantitate, pretUnitar):
+        self.PretUnitar = int(pretUnitar)
+        self.Nume = nume
+        self.Cantitate = int(cantitate)
+
+
+#	Citeste fisierul cu baza de date si creaza o lista de liste
+
+
+def readDataBase(filename):
+    db = []
+    inventar = open(filename, 'r')
+    for line in inventar:
+        matlst = line.split(',')
+        # elimina spațiile albe
+        lstp = []
+        for x in matlst:
+            xs = x.strip()
+            lstp.append(xs)
+        mat = Material(lstp[0], lstp[1], lstp[2])
+        db.append(mat)
+    inventar.close()
+    return db
+
+#	Salveaza baza de date pe disc
+
+
+def saveDataBase(filename, db):
+    inventar = open(filename, 'w')
+    for mat in db:
+        strp = str(mat.Nume) + ',' + str(mat.Cantitate) + \
+            ',' + str(mat.PretUnitar) + '\n'
+        inventar.write(strp)
+    inventar.close()
+
+#	Afisaza baza de date
+
+
+def printDataBase(db):
+    print('---------------------------------------')
+    print('  Nume - Cantitate - PretUniversal')
+    for mat in db:
+        print(mat.Nume, '- ', mat.Cantitate, '- ', mat.PretUnitar)
+    print('---------------------------------------')
+
+#	Afisare mesaj de selectie
+
+
+def printmes():
+
+    print('1 - Afisare Inventar')
+    print('2 - Sortare Inventar dupa Nume')
+    print('3 - Sortare Inventar dupa Cantitate')
+    print('4 - Sortare Inventar dupa Pret')
+    print('5 - Materiale cu cantitatea < 4')
+    print('6 - Materiale epuizate (cantiate = 0)')
+    print('7 - Materiale foarte scumpe (PretUnitar > 10000)')
+    print('0 - iesire')
+
+#	Test program
+#	Criteriile de sortare : Nume,Cantitate,PretUnitar
+
+
+def crt1(x):
+    return x.Nume
+
+
+def crt2(x):
+    return x.Cantitate
+
+
+def crt3(x):
+    return x.PretUnitar
+
+
+#	Test program
+def test(filename):
+    inventar = readDataBase(filename)
+    i = 1
+    while i != 0:
+        printmes()
+    # Selectare comanda
+        i = int(input())
+
+    # 1 - Afisare Inventar complet
+        if i == 1:
+            printDataBase(inventar)
+
+    # 2 - Afisare inventar dupa nume
+        if i == 2:
+            inventar.sort(key=crt1)
+            printDataBase(inventar)
+
+    # 3 - Afisare inventar dupa cantitate
+        if i == 3:
+            inventar.sort(key=crt2)
+            printDataBase(inventar)
+
+    # 4 - Afisare inventar dupa pret
+        if i == 4:
+            inventar.sort(key=crt3)
+            printDataBase(inventar)
+
+    # 5 - Afisare materiale cu cantitatea <= 4
+        if i == 5:
+            cantitateMica = []
+            inventar.sort(key=crt2)
+            for material in inventar:
+                if(material.Cantitate <= 4):
+                    cantitateMica.append(material.Nume)
+            print('---------------------------------------')
+            print("Materialele cu cantitatea mai mica de 4 :", cantitateMica)
+            print('---------------------------------------')
+
+    # 6 - Afisare materiale epuizate
+        if i == 6:
+            cantitateZero = []
+            inventar.sort(key=crt2)
+            for material in inventar:
+                if(material.Cantitate == 0):
+                    cantitateZero.append(material.Nume)
+            print('---------------------------------------')
+            print("Materialele epuizate :", cantitateZero)
+            print('---------------------------------------')
+
+    # 7 - Afisare materiale cu PretulUnitar > 10000
+        if i == 7:
+            inventar.sort(key=crt3)
+            pretMare = []
+            for material in inventar:
+                if(material.PretUnitar > 10000):
+                    pretMare.append(material.Nume)
+            print('---------------------------------------')
+            print("Materialele cu pretul mai mare de 10000 :", pretMare)
+            print('---------------------------------------')
+
+        # 0 - Iesire
+        if i == 0:
+            break
+        saveDataBase(filename, inventar)

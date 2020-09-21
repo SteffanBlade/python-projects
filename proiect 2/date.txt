@@ -1,0 +1,7 @@
+CSU din Suceava,500,60,25,15,100,3,juniori,campionat national,7,5
+CS Dinamo Bucuresti,1500,35,14,12,100,3,juniori,campionat national,7,5
+CS Magnum Botosani,1256,30,10,5,120,3,juniori,campionat national,7,5
+CSM Alexandria,1000,25,10,15,123,2,juniori,campionat national,7,5
+AHC Dobrogea Sud,1300,27,10,5,36,1,juniori,campionat national,7,5
+CSM Bacau,865,12,10,1,87,3,juniori,campionat national,7,5
+SCM Politehnica Timisoara,962,20,12,5,90,2,juniori,campionat national,7,5

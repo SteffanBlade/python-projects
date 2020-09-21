@@ -1,0 +1,9 @@
+Miron,Valentin,12,varicela,Odihna,1,elev
+Vlad,Catalin,20,Gripa,Paracetamol,1,student
+Vlad,Catalin,20,Gripa,Paracetamol,1,student
+Ion,Cosmin,23,enterocolita,Nospa,1,student
+Marin,Andrei,26,enterocolita,Nospa,1,vanzator
+Mirel,Catalin,32,cancer,Citostatice,3,economist
+Marcu,Gabriel,45,pneumonie,Augumentin,2,inginer
+Vlad,Catalin,20,Gripa,Paracetamol,1,student
+Vlad,Catalin,20,Gripa,Paracetamol,1,student
